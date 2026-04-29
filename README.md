@@ -1,32 +1,37 @@
 
-# Dynamics365-Contact-Center-Tools
+# Dynamics 365 Contact Center Tools
 
-A comprehensive toolkit for Dynamics 365 Contact Center operations, including automation, integration, and management utilities.
+Practical utilities and guides for Dynamics 365 Contact Center operations — phone number migration, media archival, data import, and performance optimization.
 
-## Features
+## Tools
 
-- **Contact Center Management** - Tools for queue management, agent administration, and workload distribution
-- **Dynamics 365 Integration** - Seamless connectors and APIs for CRM synchronization
-- **Automation & Scripting** - PowerShell and workflow automation for routine operations
-- **Reporting & Analytics** - Dashboard utilities and performance monitoring tools
-- **Configuration Helpers** - Simplified setup and deployment scripts
+### [ACS to TPE Migration](acs-to-tpe-migration/)
+PowerShell tool to bulk-migrate phone numbers from Azure Communication Services (ACS) Direct Routing to Teams Phone Extensibility (TPE) for Dynamics 365 Contact Center. Supports dry-run, validation, throttling, and auto-rollback.
+
+### [D365 Media Archiver](d365-media-archiver/)
+Python utility to export audio recordings, screen recordings, and transcripts from Dynamics 365 Contact Center to Azure Blob Storage. Reduces storage costs by ~10,000x by moving data from Dataverse to Azure Archive tier with automated lifecycle policies.
+
+### [D365 Transcript Loader](d365-transcript-loader/)
+Python script to import historical conversation transcripts from third-party systems (Zendesk, Genesys, Salesforce, etc.) into Dynamics 365 Contact Center via the Dataverse Web API.
+
+### [IVR Greeting Optimization](d365-ivr-greeting-optimization/)
+Technical guide for reducing IVR greeting latency when greeting text is stored in Dataverse. Covers root cause analysis and optimization options from quick fixes to advanced caching strategies.
 
 ## Getting Started
 
-1. Clone the repository
-2. Review the `docs/` folder for detailed documentation
-3. Install prerequisites (PowerShell, Dynamics 365 SDK)
-4. Run setup scripts for your environment
-
-## Usage
-
-See the `examples/` directory for sample configurations and implementation guides.
+Each tool has its own README with prerequisites and usage instructions. Navigate to the tool folder for details.
 
 ## Contributing
 
-Contributions are welcome. Please follow the project guidelines and submit pull requests.
+Contributions welcome. Submit pull requests with clear descriptions.
 
 ## License
 
 MIT License
+
+## Disclaimer
+
+This project is **not supported, endorsed, or managed by Microsoft**. These tools are provided as-is, without warranty of any kind. Use at your own risk. Always test in a non-production environment before applying to production systems.
+
+
 
