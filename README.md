@@ -14,9 +14,6 @@ Python utility to export audio recordings, screen recordings, and transcripts fr
 ### [D365 Transcript Loader](d365-transcript-loader/)
 Python script to import historical conversation transcripts from third-party systems (Zendesk, Genesys, Salesforce, etc.) into Dynamics 365 Contact Center via the Dataverse Web API.
 
-### [IVR Greeting Optimization](d365-ivr-greeting-optimization/)
-Technical guide for reducing IVR greeting latency when greeting text is stored in Dataverse. Covers root cause analysis and optimization options from quick fixes to advanced caching strategies.
-
 ## Getting Started
 
 Each tool has its own README with prerequisites and usage instructions. Navigate to the tool folder for details.
