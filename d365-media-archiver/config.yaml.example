@@ -1,0 +1,59 @@
+# d365-media-archiver — Configuration Template
+# Copy to config.yaml and fill in your values.
+
+# --- Dynamics 365 / Dataverse ---
+dataverse:
+  org_url: "https://<your-org>.crm.dynamics.com"   # No trailing slash
+  tenant_id: "<AAD tenant GUID>"
+  client_id: "<App Registration client ID>"
+  client_secret: "<secret>"
+  # client_certificate_path: "path/to/cert.pem"    # Alternative to client_secret
+  api_version: "9.2"
+  max_retries: 5
+  page_size: 100                   # Records per Dataverse API page (max 5000)
+
+# --- Azure Blob Storage ---
+blob_storage:
+  account_url: "https://<storageaccount>.blob.core.windows.net"
+  # auth_method: one of "managed_identity", "connection_string", "account_key"
+  auth_method: "managed_identity"  # Recommended for Azure-hosted deployments
+  # connection_string: "DefaultEndpointsProtocol=https;AccountName=...;AccountKey=...;EndpointSuffix=core.windows.net"
+  # account_key: "<key>"
+  containers:
+    audio: "d365-audio"
+    screen: "d365-screen"
+    transcripts: "d365-transcripts"
+
+# --- Pipeline: Audio ---
+# Source entity: msdyn_ocrecording
+audio:
+  enabled: true
+  export_after_days: 7             # Export recordings older than N days
+  cleanup_action: "retain"         # "retain" = LTDR (keeps metadata), "delete" = full delete
+  file_attribute_name: "msdyn_recording"
+
+# --- Pipeline: Screen Recordings ---
+# Source entity: msdyn_screenrecording
+screen:
+  enabled: true
+  export_after_days: 1             # Export ASAP to save Dataverse storage costs
+  cleanup_action: "delete"         # Full delete — no metadata value after 90d
+  file_attribute_name: null        # null = auto-discover via --discover-schema
+
+# --- Pipeline: Transcripts ---
+# Source entity: annotation (objecttypecode = 'msdyn_transcript')
+transcript:
+  enabled: true
+  export_after_days: 7
+  cleanup_action: "delete_annotation_keep_metadata"  # Deletes blob, keeps msdyn_transcript row
+
+# --- Manifest ---
+manifest:
+  path: "./manifest/archive_manifest.csv"
+  append_mode: true                # false = overwrite each run (not recommended)
+
+# --- Run behavior ---
+run:
+  dry_run: false                   # true = query and log, no downloads or deletes
+  max_records_per_run: 1000        # Safety cap per pipeline per execution
+  log_level: "INFO"                # DEBUG, INFO, WARNING, ERROR
