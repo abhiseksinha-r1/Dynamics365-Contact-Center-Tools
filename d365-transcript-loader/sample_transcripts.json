@@ -1,0 +1,86 @@
+[
+  {
+    "external_id": "CHAT-20240115-001",
+    "channel": "chat",
+    "customer_email": "jane.doe@example.com",
+    "customer_name": "Jane Doe",
+    "subject": "Billing inquiry – invoice #4521",
+    "queue_name": "Billing Support",
+    "agent_email": "agent.smith@contoso.com",
+    "start_time": "2024-01-15T10:00:00Z",
+    "end_time": "2024-01-15T10:22:00Z",
+    "language": "en",
+    "messages": [
+      {
+        "id": "msg-001",
+        "timestamp": "2024-01-15T10:00:12Z",
+        "sender_id": "jane.doe@example.com",
+        "sender_name": "Jane Doe",
+        "role": "customer",
+        "text": "Hi, I have a question about my invoice."
+      },
+      {
+        "id": "msg-002",
+        "timestamp": "2024-01-15T10:01:05Z",
+        "sender_id": "agent.smith@contoso.com",
+        "sender_name": "Agent Smith",
+        "role": "agent",
+        "text": "Hello Jane! I'd be happy to help. Could you share the invoice number?"
+      },
+      {
+        "id": "msg-003",
+        "timestamp": "2024-01-15T10:01:45Z",
+        "sender_id": "jane.doe@example.com",
+        "sender_name": "Jane Doe",
+        "role": "customer",
+        "text": "Sure, it's invoice #4521."
+      },
+      {
+        "id": "msg-004",
+        "timestamp": "2024-01-15T10:20:00Z",
+        "sender_id": "agent.smith@contoso.com",
+        "sender_name": "Agent Smith",
+        "role": "agent",
+        "text": "I've reviewed it. The charge is correct. Is there anything else I can help with?"
+      },
+      {
+        "id": "msg-005",
+        "timestamp": "2024-01-15T10:21:30Z",
+        "sender_id": "jane.doe@example.com",
+        "sender_name": "Jane Doe",
+        "role": "customer",
+        "text": "No, that's all. Thank you!"
+      }
+    ]
+  },
+  {
+    "external_id": "VOICE-20240116-042",
+    "channel": "voice",
+    "customer_email": "john.smith@acme.com",
+    "customer_name": "John Smith",
+    "subject": "Technical support – login failure",
+    "queue_name": "Technical Support",
+    "agent_email": "agent.jones@contoso.com",
+    "start_time": "2024-01-16T14:30:00Z",
+    "end_time": "2024-01-16T14:48:00Z",
+    "language": "en",
+    "messages": [
+      {
+        "id": "msg-101",
+        "timestamp": "2024-01-16T14:30:10Z",
+        "sender_id": "john.smith@acme.com",
+        "sender_name": "John Smith",
+        "role": "customer",
+        "text": "[Call transcript] I cannot log into the portal."
+      },
+      {
+        "id": "msg-102",
+        "timestamp": "2024-01-16T14:31:00Z",
+        "sender_id": "agent.jones@contoso.com",
+        "sender_name": "Agent Jones",
+        "role": "agent",
+        "text": "I understand. Let me reset your password and walk you through the steps."
+      }
+    ]
+  }
+]
